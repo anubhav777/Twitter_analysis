@@ -28,3 +28,11 @@ urlpatterns = [
   
 ]
 
+def start_job():
+    global job
+    job=scheduler.add_job(timeout,'interval',minutes=30)
+    try:
+        scheduler.start()
+    except :
+        pass
+start_job()
